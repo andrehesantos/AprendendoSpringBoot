@@ -1,13 +1,20 @@
 package com.springboot.AprendendoSpringBoot.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Category implements Serializable{
 	
 	private static final long serialVersionUID = 1L;	
 	private long id_category;
 	private String nome_category;
+	
+	@JsonIgnore
+	private List<Product> lista_produtos = new ArrayList<>();
 	
 	public Category() {
 		
@@ -33,6 +40,10 @@ public class Category implements Serializable{
 
 	public void setNome_category(String nome_category) {
 		this.nome_category = nome_category;
+	}
+	
+	public List<Product> getLista_produtos() {
+		return lista_produtos;
 	}
 
 	@Override
